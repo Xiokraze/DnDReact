@@ -1,0 +1,9 @@
+.card {
+  background: var(--DnDBlack);
+  width: 90%;
+  display: inline-block;
+  margin: 1rem auto;
+  margin-top: 4rem;
+  text-align: center;
+  padding-bottom: 1rem;
+}
