@@ -1,10 +1,8 @@
-import Card from "../UI/Card";
+import WotcContentPolicy from "../Wotc/WotcContentPolicy";
 
 const HomePage = () => {
   return (
-    <Card>
-      <p>hi</p>
-    </Card>
+    <WotcContentPolicy/>
   );
 };
 
