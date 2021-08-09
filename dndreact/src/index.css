@@ -13,7 +13,6 @@ body {
   margin: 0;
   background-color: var(--DnDDark);
   text-align: center;
-
   min-width: 320px; /*Smallest device width in browser dev tools (iphone 5/SE)*/
 }
 
@@ -33,14 +32,13 @@ a {
   color: var(--DnDGold);
 }
 
+
+
 table {
   color: var(--DnDLight);
   font-family: 'Raleway', Arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  height: calc(100vh - 10rem);
-  overflow-y: scroll;
-  display: table;
 }
 
 td, th {
