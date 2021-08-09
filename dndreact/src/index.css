@@ -33,6 +33,40 @@ a {
   color: var(--DnDGold);
 }
 
+table {
+  color: var(--DnDLight);
+  font-family: 'Raleway', Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  height: calc(100vh - 10rem);
+  overflow-y: scroll;
+  display: table;
+}
+
+td, th {
+  padding: .5rem;
+}
+
+th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  text-align: center;
+  background-color: var(--DnDBlack);
+  color: var(--DnDRed);
+  font-weight: bold;
+}
+
+tr {
+  width: 100%;
+  margin: 1rem;
+}
+
+tr:nth-child(odd) {
+  background-color: var(--DnDBlack);
+}
+
 .navMenu, a {
   font-family: 'Raleway', Arial, sans-serif;
   text-align: center;
