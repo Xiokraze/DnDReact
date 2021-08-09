@@ -32,8 +32,6 @@ a {
   color: var(--DnDGold);
 }
 
-
-
 table {
   color: var(--DnDLight);
   font-family: 'Raleway', Arial, sans-serif;
@@ -54,11 +52,6 @@ th {
   background-color: var(--DnDBlack);
   color: var(--DnDRed);
   font-weight: bold;
-}
-
-tr {
-  width: 100%;
-  margin: 1rem;
 }
 
 tr:nth-child(odd) {
