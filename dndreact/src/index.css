@@ -13,7 +13,6 @@ body {
   margin: 0;
   background-color: var(--DnDDark);
   text-align: center;
-  min-width: 320px; /*Smallest device width in browser dev tools (iphone 5/SE)*/
 }
 
 p {
@@ -47,7 +46,7 @@ th {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 1;
   text-align: center;
   background-color: var(--DnDBlack);
   color: var(--DnDRed);
@@ -122,4 +121,11 @@ tr:nth-child(odd) {
   -webkit-transform: translate(0%, 0%);
   transform: translate(0%, 0%);
   opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
 }

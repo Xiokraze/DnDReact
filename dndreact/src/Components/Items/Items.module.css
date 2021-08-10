@@ -6,7 +6,7 @@
   margin: .25rem;
   border-right: 1px solid var(--DnDLight);
   width: 6rem;
-  min-width: 5rem;
+  min-width: 6rem;
   font-family: 'Raleway', Arial, sans-serif;
 }
 
@@ -45,4 +45,20 @@
   justify-content: center;
   color: var(--DnDLight);
   font-family: 'Raleway', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .ulList {
+    width: 4rem;
+    min-width: 4rem;
+  }
+
+  .liOption, .liOptionFocused {
+    transform: rotate(-45deg);
+  }
+
+  /* .liOption:nth-child(odd), .liOptionFocused:nth-child(odd) {
+    transform: rotate(45deg);
+  } */
 }
