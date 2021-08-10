@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HeaderNavBar = () => {
   useEffect(() => {
-    var menuSelection = localStorage.getItem("menuSelection");
+    var menuSelection = sessionStorage.getItem("menuSelection");
     if (menuSelection) {
       switch (menuSelection) {
         case "home":
@@ -29,21 +29,21 @@ const HeaderNavBar = () => {
     setHomeFocused(true);
     setItemsFocused(false);
     setSpellsFocused(false);
-    localStorage.setItem("menuSelection", "home");
+    sessionStorage.setItem("menuSelection", "home");
   };
 
   const itemsClicked = (event) => {
     setHomeFocused(false);
     setItemsFocused(true);
     setSpellsFocused(false);
-    localStorage.setItem("menuSelection", "items");
+    sessionStorage.setItem("menuSelection", "items");
   };
 
   const spellsClicked = (event) => {
     setHomeFocused(false);
     setItemsFocused(false);
     setSpellsFocused(true);
-    localStorage.setItem("menuSelection", "spells");
+    sessionStorage.setItem("menuSelection", "spells");
   };
 
   const homeClass = homeFocused ? "navMenuSelected" : "navMenu";
