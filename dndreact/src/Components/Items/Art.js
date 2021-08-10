@@ -18,8 +18,6 @@ const Art = () => {
     itemList.push(element);
   });
 
-  itemList.sort((x,y) => (x.value > y.value) ? 1 : -1);
-
 
   return (
     <table>
