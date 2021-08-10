@@ -14,7 +14,7 @@ const WotcContentPolicy = () => {
           target="_blank"
           rel="noreferrer"
         >
-          Visit Wizards Policy
+          View Wizards Policy
         </a>
       </Card>
     </div>
