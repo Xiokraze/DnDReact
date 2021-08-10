@@ -15,12 +15,6 @@ function App() {
         <Switch>
           <Route path="/" exact><HomePage/></Route>
           <Route path="/items" exact><Items/></Route>
-          <Route path="/items/armor" exact><Items/></Route>
-          <Route path="/items/art" exact><Items/></Route>
-          <Route path="/items/gems" exact><Items/></Route>
-          <Route path="/items/generalItems" exact><Items/></Route>
-          <Route path="/items/trinkets" exact><Items/></Route>
-          <Route path="/items/weapons" exact><Items/></Route>
           <Route path="/spells" exact><Spells/></Route>
         </Switch>
       </Suspense>
