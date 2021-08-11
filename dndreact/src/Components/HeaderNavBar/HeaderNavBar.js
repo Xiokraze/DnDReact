@@ -52,16 +52,16 @@ const HeaderNavBar = () => {
 
   return (
     <div>
-      <ul class="navMenu">
-        <li class={homeClass} onClick={homeClicked}>
+      <ul className="navMenu">
+        <li className={homeClass} onClick={homeClicked}>
           <Link to="/">Home</Link>
         </li>
-        <li class={itemClass}>
+        <li className={itemClass}>
           <Link to="/items" onClick={itemsClicked}>
             Items
           </Link>
         </li>
-        <li class={spellClass}>
+        <li className={spellClass}>
           <Link to="/spells" onClick={spellsClicked}>
             Spells
           </Link>

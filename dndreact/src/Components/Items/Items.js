@@ -78,8 +78,8 @@ const Items = () => {
   const weaponsClass = showHideWeapons ? styles.liOptionFocused : styles.liOption;
   
   return (
-    <div className={styles.itemDiv}>
-      <ul className={styles.ulList}>
+    <div className={"itemDiv"}>
+      <ul className={"ulList"}>
         <li onClick={armorClicked} className={armorClass}>
           Armor
         </li>

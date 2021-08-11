@@ -22,6 +22,23 @@ p {
   letter-spacing: 2px;
 }
 
+.ulList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+  margin: .25rem;
+  border-right: 1px solid var(--DnDLight);
+  width: 6rem;
+  min-width: 6rem;
+  font-family: 'Raleway', Arial, sans-serif;
+}
+
+.itemDiv {
+  display:inline-flex;
+  width: 100%;
+}
+
 .test {
   margin: auto;
   max-width: 60rem;
@@ -29,6 +46,22 @@ p {
 
 a {
   color: var(--DnDGold);
+}
+
+.reactWindow {
+  color: var(--DnDGold);
+  font-family: 'Raleway', Arial, sans-serif;
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.reactWindowRow:hover {
+  color: var(--DnDRed);
+  letter-spacing: .5rem;
+  transition: color .5s, letter-spacing .5s;
 }
 
 table {
@@ -123,9 +156,4 @@ tr:nth-child(odd) {
   opacity: 1;
 }
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  [class*="col-"] {
-    width: 100%;
-  }
-}
+
