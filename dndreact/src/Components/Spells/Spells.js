@@ -1,40 +1,56 @@
 import { spellList } from "./SpellList";
 import { FixedSizeList as List } from "react-window";
-import WindowDimensions from "../../Hooks/WindowDimensions";
 import useWindowDimensions from "../../Hooks/WindowDimensions";
 import React, { useState, useRef } from "react";
+import SpellModal from "./SpellModal";
 
 const Spells = () => {
   const reactWindowRef = useRef(null);
+  const [selectedSpell, setSelectedSpell] = useState();
   const { height, width } = useWindowDimensions();
   const Row = ({ index, style }) => (
-    <div className={"reactWindowRow"} style={style}>
+    <div
+      onClick={() => setSelectedSpell(spellList[index])}
+      className={"reactWindowRow"}
+      style={style}
+    >
       {spellList[index].name}
     </div>
   );
-  let yOffset = 0;
 
-  // Recalculate the list's height to make it scale with devices
-  // and window resizing.
+  const clearSelectedSpell = () => {
+    setSelectedSpell(null);
+  }
+
+  // Recalculate the list's height to make it scale with devices and window resizing.
+  let yOffset = 0;
   let element = document.querySelector(".reactWindow");
   if (element) {
     var rect = element.getBoundingClientRect();
     yOffset = rect.top;
   }
-  let reactWindowHeight = Math.round((height - yOffset) * .95);
-  let reactWindowWidth = Math.round(width * .95);
+  let reactWindowHeight = Math.round((height - yOffset) * 0.95);
+  let reactWindowWidth = Math.round(width * 0.95);
 
   return (
-    <List
-      ref={reactWindowRef}
-      className={"reactWindow"}
-      height={reactWindowHeight}
-      itemCount={spellList.length}
-      itemSize={35}
-      width={reactWindowWidth}
-    >
-      {Row}
-    </List>
+    <div>
+      {selectedSpell && selectedSpell.name && (
+        <SpellModal
+          selectedSpell={selectedSpell}
+          onConfirm={clearSelectedSpell}
+        />
+      )}
+      <List
+        ref={reactWindowRef}
+        className={"reactWindow"}
+        height={reactWindowHeight}
+        itemCount={spellList.length}
+        itemSize={35}
+        width={reactWindowWidth}
+      >
+        {Row}
+      </List>
+    </div>
 
     // <div className={"itemDiv"}>
     //   <ul className={"ulList"}>

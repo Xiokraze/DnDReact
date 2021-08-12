@@ -1,0 +1,41 @@
+.category {
+  color: var(--DnDLight);
+}
+
+.spellModal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  padding-top: 1rem;
+  margin: auto;
+  background: var(--DnDBlack);
+  overflow-y: auto;
+}
+
+.spellModalActions {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.spellModalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(3px);
+}
+
+.spellModalContent {
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.spellModalH1 {
+  color: var(--DnDLight);
+}

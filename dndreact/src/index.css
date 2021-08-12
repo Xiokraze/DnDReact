@@ -48,6 +48,26 @@ a {
   color: var(--DnDGold);
 }
 
+button {
+  background-color: var(--DnDDark);
+  color: var(--DnDLight);
+  width: 10rem;
+  height: auto;
+  border: 2px solid var(--DnDLight);
+  border-radius: 3px;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+button:hover {
+  color: var(--DnDDark);
+  background-color: var(--DnDLight);
+}
+
 .reactWindow {
   color: var(--DnDGold);
   font-family: 'Raleway', Arial, sans-serif;
