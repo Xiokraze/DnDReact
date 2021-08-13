@@ -6,6 +6,7 @@ import HeaderNavBar from "./Components/HeaderNavBar/HeaderNavBar";
 import HomePage from "./Components/HomePage/HomePage";
 import Items from "./Components/Items/Items";
 import Spells from "./Components/Spells/Spells";
+import Spell from "./Components/Spells/Spell";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" exact><HomePage/></Route>
           <Route path="/items" exact><Items/></Route>
           <Route path="/spells" exact><Spells/></Route>
+          <Route path="/spell" exact><Spell/></Route>
         </Switch>
       </Suspense>
     </React.Fragment>

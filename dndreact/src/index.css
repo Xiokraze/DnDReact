@@ -76,12 +76,35 @@ button:hover {
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 1px;
+  -ms-overflow-style: none;
+}
+
+.reactWindow::-webkit-scrollbar {
+  display: none;
 }
 
 .reactWindowRow:hover {
   color: var(--DnDRed);
   letter-spacing: .5rem;
   transition: color .5s, letter-spacing .5s;
+}
+
+.searchBar {
+  font-family: 'Raleway', Arial, sans-serif;
+  height: 3rem;
+  width: 22rem;
+  margin: 1rem;
+  border: 1px solid var(--DnDLight);
+  border-radius: .25rem;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--DnDLight);
+  background-color: var(--DnDDark);
+  padding: .75rem;
+}
+
+.searchBar::placeholder {
+  color: var(--DnDLight);
 }
 
 table {
@@ -175,5 +198,9 @@ tr:nth-child(odd) {
   transform: translate(0%, 0%);
   opacity: 1;
 }
+
+
+
+
 
 

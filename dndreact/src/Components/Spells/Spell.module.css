@@ -1,0 +1,13 @@
+.category {
+  color: var(--DnDLight);
+}
+
+.spellModalContent {
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.spellModalH1 {
+  color: var(--DnDLight);
+}

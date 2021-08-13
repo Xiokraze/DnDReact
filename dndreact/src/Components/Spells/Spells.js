@@ -1,26 +1,60 @@
 import { spellList } from "./SpellList";
 import { FixedSizeList as List } from "react-window";
 import useWindowDimensions from "../../Hooks/WindowDimensions";
-import React, { useState, useRef } from "react";
-import SpellModal from "./SpellModal";
+import React, { useState, useRef, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 const Spells = () => {
+  const history = useHistory();
   const reactWindowRef = useRef(null);
-  const [selectedSpell, setSelectedSpell] = useState();
   const { height, width } = useWindowDimensions();
+  const [spell, setSpell] = useState("");
+  const [foundSpells, setFoundSpells] = useState(spellList);
+
+  useEffect(() => {
+    var keyword = sessionStorage.getItem("spellSearch");
+    if (keyword && keyword !== "") {
+      var filteredList = spellList.filter(function (event) {
+        return event.name.toUpperCase().includes(keyword.toUpperCase());
+      });
+      setFoundSpells(filteredList);
+    } else {
+      setFoundSpells(spellList);
+    }
+    sessionStorage.setItem("spellSearch", keyword);
+    setSpell(keyword);
+  }, []);
+
+  const searchSpellEvent = (e) => {
+    const keyword = e.target.value;
+    if (keyword !== "") {
+      var filteredList = spellList.filter(function (event) {
+        return event.name.toUpperCase().includes(keyword.toUpperCase());
+      });
+      setFoundSpells(filteredList);
+    } else {
+      setFoundSpells(spellList);
+    }
+    sessionStorage.setItem("spellSearch", keyword);
+    setSpell(keyword);
+  };
+
+  const spellChosen = (spell) => {
+    history.push({
+      pathname: "/spell",
+      state: { detail: spell },
+    });
+  };
+
   const Row = ({ index, style }) => (
     <div
-      onClick={() => setSelectedSpell(spellList[index])}
+      onClick={() => spellChosen(foundSpells[index])}
       className={"reactWindowRow"}
       style={style}
     >
-      {spellList[index].name}
+      {foundSpells[index].name}
     </div>
   );
-
-  const clearSelectedSpell = () => {
-    setSelectedSpell(null);
-  }
 
   // Recalculate the list's height to make it scale with devices and window resizing.
   let yOffset = 0;
@@ -34,51 +68,24 @@ const Spells = () => {
 
   return (
     <div>
-      {selectedSpell && selectedSpell.name && (
-        <SpellModal
-          selectedSpell={selectedSpell}
-          onConfirm={clearSelectedSpell}
-        />
-      )}
+      <input
+        type="search"
+        value={spell}
+        onChange={searchSpellEvent}
+        className="searchBar"
+        placeholder="Search..."
+      />
       <List
         ref={reactWindowRef}
         className={"reactWindow"}
         height={reactWindowHeight}
-        itemCount={spellList.length}
+        itemCount={foundSpells.length}
         itemSize={35}
         width={reactWindowWidth}
       >
         {Row}
       </List>
     </div>
-
-    // <div className={"itemDiv"}>
-    //   <ul className={"ulList"}>
-
-    //   </ul>
-    // </div>
-    // <table>
-    //   <tr>
-    //     <th>Name</th>
-    //     {/* <th>Level</th>
-    //     <th>Cast Time</th>
-    //     <th>Range</th>
-    //     <th>Components</th>
-    //     <th>Duration</th>
-    //     <th>School</th>
-    //     <th>Attack</th>
-    //     <th>Damage/Effect</th>
-    //     <th>Ritual</th>
-    //     <th>Concentration</th>
-    //     <th>Source</th>
-    //     <th>At Higher Level</th>
-    //     <th>Castable By</th>
-    //     <th>Description</th> */}
-    //   </tr>
-    //   {spellList.map((item) => (
-    //     <td>{item.name}</td>
-    //   ))}
-    // </table>
   );
 };
 
