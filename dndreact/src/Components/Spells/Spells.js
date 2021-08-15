@@ -25,7 +25,6 @@ const Spells = () => {
     }
   }, []);
 
-  
   const searchSpellEvent = (e) => {
     const keyword = e.target.value;
     if (keyword !== "") {
