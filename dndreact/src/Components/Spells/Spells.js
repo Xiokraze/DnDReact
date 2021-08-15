@@ -13,16 +13,16 @@ const Spells = () => {
 
   useEffect(() => {
     var keyword = sessionStorage.getItem("spellSearch");
-    if (keyword && keyword !== "") {
+    if (keyword != null && keyword !== "") {
       var filteredList = spellList.filter(function (event) {
         return event.name.toUpperCase().includes(keyword.toUpperCase());
       });
       setFoundSpells(filteredList);
+      sessionStorage.setItem("spellSearch", keyword);
+      setSpell(keyword);
     } else {
       setFoundSpells(spellList);
     }
-    sessionStorage.setItem("spellSearch", keyword);
-    setSpell(keyword);
   }, []);
 
   const searchSpellEvent = (e) => {
