@@ -1,4 +1,3 @@
-import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import React, { Suspense } from "react";
 import ActivityIndicator from "./Components/ActivityIndicator/ActivityIndicator";
