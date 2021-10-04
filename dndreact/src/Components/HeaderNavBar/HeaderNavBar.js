@@ -15,6 +15,9 @@ const HeaderNavBar = () => {
         case "spells":
           spellsClicked();
           break;
+        case "generators":
+          spellsClicked();
+          break;
         default:
           break;
       }
@@ -24,37 +27,55 @@ const HeaderNavBar = () => {
   const [homeFocused, setHomeFocused] = useState(true);
   const [itemsFocused, setItemsFocused] = useState(false);
   const [spellsFocused, setSpellsFocused] = useState(false);
+  const [generatorsFocused, setGeneratorsFocused] = useState(false);
 
-  const homeClicked = (event) => {
+  const homeClicked = () => {
     setHomeFocused(true);
     setItemsFocused(false);
     setSpellsFocused(false);
+    setGeneratorsFocused(false);
     sessionStorage.setItem("menuSelection", "home");
   };
 
-  const itemsClicked = (event) => {
+  const itemsClicked = () => {
     setHomeFocused(false);
     setItemsFocused(true);
     setSpellsFocused(false);
+    setGeneratorsFocused(false);
     sessionStorage.setItem("menuSelection", "items");
   };
 
-  const spellsClicked = (event) => {
+  const spellsClicked = () => {
     setHomeFocused(false);
     setItemsFocused(false);
     setSpellsFocused(true);
+    setGeneratorsFocused(false);
     sessionStorage.setItem("menuSelection", "spells");
+  };
+
+  const generatorsClicked = () => {
+    setHomeFocused(false);
+    setItemsFocused(false);
+    setSpellsFocused(false);
+    setGeneratorsFocused(true);
+    sessionStorage.setItem("menuSelection", "generators");
   };
 
   const homeClass = homeFocused ? "navMenuSelected" : "navMenu";
   const itemClass = itemsFocused ? "navMenuSelected" : "navMenu";
   const spellClass = spellsFocused ? "navMenuSelected" : "navMenu";
+  const generatorsClass = generatorsFocused ? "navMenuSelected" : "navMenu";
 
   return (
     <div>
       <ul className="navMenu">
         <li className={homeClass} onClick={homeClicked}>
           <Link to="/">Home</Link>
+        </li>
+        <li className={generatorsClass}>
+          <Link to="/generators" onClick={generatorsClicked}>
+            Generators
+          </Link>
         </li>
         <li className={itemClass}>
           <Link to="/items" onClick={itemsClicked}>
